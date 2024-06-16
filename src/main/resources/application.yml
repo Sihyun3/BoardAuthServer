@@ -1,0 +1,25 @@
+server:
+  port: 8080 
+  
+spring:
+  r2dbc:
+    url: r2dbc:mysql://127.0.0.1:3306/main_database
+    username: root
+    password: p@ssw0rd
+  application:
+    name: apigateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: test-server   # first-service
+          uri: http://localhost:8081/      # http://localhost:8081/ (이동될 주소)
+          predicates:         # 해당 라우터의 조건 (사용자가 입력한 주소) (/first-service/**로 들어오는 요청은 모두 first-service route로 보낸다.
+            - Path=/test-server/**
+          filters: 
+          - name: AuthFilter
+            args: 
+              role: 1
+token:
+  expiration-time: 8600000
+  secret: USlawmakershavealsopassedanonbindingresolutioncondemni
+  
