@@ -33,8 +33,9 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
 		return (exchange, chain) -> {
 			ServerHttpRequest request = exchange.getRequest();
 			ServerHttpResponse response = exchange.getResponse();
-			
+
 			return jwtFilter.Filter(request, response, config.getRole()).flatMap((data) -> {
+//	        	exchange.getRequest().mutate().header("키", "값").build();
 				if (data == true) {
 					return chain.filter(exchange).then(Mono.fromRunnable(() -> {
 					}));

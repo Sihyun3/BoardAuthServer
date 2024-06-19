@@ -8,5 +8,6 @@ import reactor.core.publisher.Mono;
 public interface UserInfoRepository  extends R2dbcRepository<UserInfo, Integer>{
 
 	Mono<UserInfo> findByUserId(String subject);
-
+	
+	Mono<UserInfo> findByUserIdAndUserPassword(String userId,String UserPassword);
 }

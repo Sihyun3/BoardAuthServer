@@ -12,6 +12,7 @@ import javax.crypto.SecretKey;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+import AuthServer.Dto.AuthUserDto;
 import AuthServer.Model.UserInfo;
 import AuthServer.Service.AuthService;
 import io.jsonwebtoken.Claims;
@@ -37,7 +38,7 @@ public class JwtTokenUtil {
 		this.authService = authService;
 	}
 
-	public String generateToken(AuthUser authUser) {
+	public String generateToken(AuthUserDto authUser) {
 		Instant now = Instant.now();
 
 		String jwtToken = Jwts.builder().claim("name", authUser.getUserName()).claim("role", authUser.getUserRole())

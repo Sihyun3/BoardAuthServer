@@ -42,7 +42,7 @@ public class JwtFilter {
 			e.printStackTrace();
 			return Mono.just(false);
 		}
-
+ 
 	}
 
 }

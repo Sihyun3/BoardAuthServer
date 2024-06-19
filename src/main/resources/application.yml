@@ -19,7 +19,7 @@ spring:
           - name: AuthFilter
             args: 
               role: 1
+              
 token:
   expiration-time: 8600000
   secret: USlawmakershavealsopassedanonbindingresolutioncondemni
-  

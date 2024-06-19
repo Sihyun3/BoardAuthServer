@@ -1,5 +1,7 @@
 package AuthServer.Model;
 
+import java.time.LocalDate;
+
 import org.springframework.data.annotation.Id;
 
 import lombok.Data;
@@ -16,7 +18,7 @@ public class UserInfo {
 	
 	private String userPassword;
 	
-	private String userBirth;
+	private LocalDate userBirth;
 	
 	private int userRole;
 	

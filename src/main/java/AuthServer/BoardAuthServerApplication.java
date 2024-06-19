@@ -1,5 +1,6 @@
 package AuthServer;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -14,5 +15,9 @@ public class BoardAuthServerApplication {
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
+	}
+	@Bean
+	public ModelMapper modelMaper() {
+		return new ModelMapper();
 	}
 }
