@@ -22,19 +22,13 @@ public class Controller {
 		this.loginService = loginService;
 	}
 
-	@GetMapping("/")
-	public Flux<String> main() throws Exception {
-		return Flux.just("??????");
-	}
-
 	@PostMapping("/login")
 	public Mono<ResponseEntity<TokenInfoDto>> login(@RequestBody AuthUserDto authUserDto) throws Exception {
 		
 		return loginService.login(authUserDto).map(e -> {
-			System.out.println(e.getJwtToken());
-			if (e.getJwtToken() != null) {
+			if (e.getJwtToken() != null) 
 				return ResponseEntity.status(HttpStatus.OK).body(e);
-			}
+			
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		});
 	}
